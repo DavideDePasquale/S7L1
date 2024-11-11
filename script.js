@@ -61,5 +61,6 @@ document.getElementById("petForm").addEventListener("submit", function (event) {
     petloop.push(nuovoPet);
     aggPetList();
     console.log(nuovoPet);
+    document.getElementById("petForm").reset();
 
 })
