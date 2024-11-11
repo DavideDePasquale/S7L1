@@ -53,9 +53,13 @@ function aggPetList() {
 }
 document.getElementById("petForm").addEventListener("submit", function (event) {
     event.preventDefault();
-    const petName = document.getElementById("petName").ariaValueText;
-    const ownerName = document.getElementById("ownerName").ariaValueText;
-    const species = document.getElementById("species").ariaValueText;
-    const breed = document.getElementById("breed").ariaValueText;
-    const nuovoPet = new Pet(petName, ownerName)
+    const pName = document.getElementById("petName").value;
+    const oName = document.getElementById("ownerName").value;
+    const species = document.getElementById("species").value;
+    const breed = document.getElementById("breed").value;
+    const nuovoPet = new Pet(pName, oName, species, breed);
+    petloop.push(nuovoPet);
+    aggPetList();
+    console.log(nuovoPet);
+
 })
