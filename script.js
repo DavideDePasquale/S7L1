@@ -15,3 +15,47 @@ const cristian = new User("Cristian", "Petta", "28", "Roma");
 const davidino = new User("Davidino", "Carletti", "50", "Taranto");
 console.log(davide.IsMajor(antonio));
 console.log(antonio.IsMajor(cristian));
+
+
+class Pet {
+    constructor(petName, ownerName, species = [], breed = []) {
+        this.petName = petName;
+        this.ownerName = ownerName;
+        this.species = species;
+        this.breed = breed;
+    }
+    isSameOwner(petToCompare) {
+        return this.ownerName === petToCompare.ownerName;
+        // ? ${this.ownerName} è uguale: "non è uguale";
+    }
+}
+
+const Pet1 = new Pet("Birillo", "Cristian", "cane", "labrador");
+const Pet2 = new Pet("Pazzo", "Antonio", "gatto", "soriano");
+const Pet3 = new Pet("kiki", "Dario", "coniglio", "nano");
+const Pet4 = new Pet("flaffy", "Antonio", "coniglio", "nano");
+
+console.log(Pet2.isSameOwner(Pet4));
+console.log(Pet1.isSameOwner(Pet3));
+
+
+const petloop = [];
+
+function aggPetList() {
+    const petLista = document.getElementById("petLista");
+    petLista.innerHTML = "";
+    petloop.forEach((pet, index) => {
+        const listePet = document.createElement("li");
+        listePet.textContent = `Nome: ${pet.petName}, Proprietario:${pet.ownerName}, Specie:${pet.species}, Razza:${pet.breed}`;
+        petLista.appendChild(listePet);
+    });
+
+}
+document.getElementById("petForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    const petName = document.getElementById("petName").ariaValueText;
+    const ownerName = document.getElementById("ownerName").ariaValueText;
+    const species = document.getElementById("species").ariaValueText;
+    const breed = document.getElementById("breed").ariaValueText;
+    const nuovoPet = new Pet(petName, ownerName)
+})
